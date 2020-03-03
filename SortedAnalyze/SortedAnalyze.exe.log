@@ -1,0 +1,156 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7717AC70 в функции strlen(). Попытка прочесть данные по адресу 0x00000008. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005062F4 (32-bit), Flags: CMdRe0, Thread: 0x1168 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7717AC70 in C:\Windows\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BC82 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: Draw() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (190):
+
+    188:     txSetTextAlign (TA_CENTER);
+    189:     txSelectFont ("Comic Sans MS", 27, 8, 1);
+=>  190:     txTextOut (centerX, y0, this->buttonName_);
+    191:     txSetColor(TX_WHITE);
+    192:     }
+
+# 2 0x0042B719 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: StartDraw() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (67):
+
+     65:     for (int i = 1; i <= DimensionButton; i++)
+     66:         {
+=>   67:         button[i].Draw();
+     68:         }
+     69:     }
+
+# 3 0x0042B61E in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: main() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (47):
+
+     45:     int Equals = 0; // счетчик сравниваний
+     46: 
+=>   47:     StartDraw(buttons, 5);
+     48: 
+     49:     return 0;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTextOut(double, double, const char*, HDC) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (11991):
+
+  11989: $   if (_TX_DEFAULT_HDC_FAILED (dc))   return false;
+  11990: 
+=>11991: $   int len = (int) strlen (text);
+  11992: $   bool ok = txGDI (!!(Win32::TextOut (dc, ROUND (x), ROUND (y), text, len)), dc);
+  11993: 
+
+# 1 in void mButton_t::Draw() at C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.cpp (190):
+
+    188:     txSetTextAlign (TA_CENTER);
+    189:     txSelectFont ("Comic Sans MS", 27, 8, 1);
+=>  190:     txTextOut (centerX, y0, this->buttonName_);
+    191:     txSetColor(TX_WHITE);
+    192:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h
+Compiled:	Mar  3 2020 09:21:37, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 03 2020 09:21:47
+
+Run file:	C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe
+Directory:	C:\Users\alexa\Documents\codeblock\SortedAnalyze
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x7717AC70 в функции strlen(). Попытка прочесть данные по адресу 0x00000008. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005062F4 (32-bit), Flags: CMdRe0, Thread: 0x1168 (Main), GetLastError(): 6 (Неверный дескриптор). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7717AC70 in C:\Windows\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BC82 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: Draw() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (190):
+
+    188:     txSetTextAlign (TA_CENTER);
+    189:     txSelectFont ("Comic Sans MS", 27, 8, 1);
+=>  190:     txTextOut (centerX, y0, this->buttonName_);
+    191:     txSetColor(TX_WHITE);
+    192:     }
+
+# 2 0x0042B719 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: StartDraw() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (67):
+
+     65:     for (int i = 1; i <= DimensionButton; i++)
+     66:         {
+=>   67:         button[i].Draw();
+     68:         }
+     69:     }
+
+# 3 0x0042B61E in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: main() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (47):
+
+     45:     int Equals = 0; // счетчик сравниваний
+     46: 
+=>   47:     StartDraw(buttons, 5);
+     48: 
+     49:     return 0;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTextOut(double, double, const char*, HDC) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (11991):
+
+  11989: $   if (_TX_DEFAULT_HDC_FAILED (dc))   return false;
+  11990: 
+=>11991: $   int len = (int) strlen (text);
+  11992: $   bool ok = txGDI (!!(Win32::TextOut (dc, ROUND (x), ROUND (y), text, len)), dc);
+  11993: 
+
+# 1 in void mButton_t::Draw() at C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.cpp (190):
+
+    188:     txSetTextAlign (TA_CENTER);
+    189:     txSelectFont ("Comic Sans MS", 27, 8, 1);
+=>  190:     txTextOut (centerX, y0, this->buttonName_);
+    191:     txSetColor(TX_WHITE);
+    192:     }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h
+Compiled:	Mar  3 2020 09:21:37, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 03 2020 09:21:47
+
+Run file:	C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe
+Directory:	C:\Users\alexa\Documents\codeblock\SortedAnalyze
+
+--------------------------------------------------
