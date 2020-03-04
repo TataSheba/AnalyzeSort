@@ -154,3 +154,284 @@ Run file:	C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe
 Directory:	C:\Users\alexa\Documents\codeblock\SortedAnalyze
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe,
+
+ВНЕЗАПНО: Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x0041DFAE в функции txEllipse() в файле C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h на строке 11914. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005082F4 (32-bit), Flags: CMdRe0, Thread: 0xC68 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041DFAE in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: txEllipse() at C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h (11914)
+# 1 0x0041E1C6 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: txCircle() at C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h (11921)
+
+# 2 0x0042BF03 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: MyPoint() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/MyInterfaceLib.h (98):
+
+     96:     double x1 = dx + 15 + (double)(x1*365/1000);
+     97:     double y1 = 475 + dy - (double)(y1*475/500000);
+=>   98:     txCircle (x1, y1, 2);
+     99:     }
+    100: 
+
+# 3 0x0042CB4B in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: ArrayDraw() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (136):
+
+    134:                 BubblSorting (i, number, &sswop, &eequal);
+    135:                 txSetColor (TX_BLUE);
+=>  136:                 MyPoint(i, eequal, color, 230, 40);
+    137:                 MyPoint(i, sswop,  color, 610, 40);
+    138:                 break;
+
+# 4 0x0042C696 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: MenuManager() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (73):
+
+     71:                         txSetFillColor(Sort1color);
+     72:                         txCircle (20,20,10);
+=>   73:                         ArrayDraw(Sort1color, 1);
+     74:                         break;};
+     75:                     case 2:
+
+# 5 0x0042C494 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: main() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (38):
+
+     36:     txCreateWindow (1000, 600);
+     37:     StartDraw(buttons, ButtonDimetsion, 1000, 600);
+=>   38:     MenuManager(buttons);
+     39: 
+     40:     return 0;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txEllipse(double, double, double, double, HDC) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (11914):
+
+  11912: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return false;
+  11913: 
+=>11914: $   return txGDI ((Win32::Ellipse (dc, ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1))), dc);
+  11915:     }
+  11916: 
+
+# 1 in bool {anonymous}::TX::txCircle(double, double, double) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (11921):
+
+  11919: bool txCircle (double x, double y, double r)
+  11920:     {
+=>11921: $1  return txEllipse (x-r, y-r, x+r, y+r);
+  11922:     }
+  11923: 
+
+# 2 in void MyPoint(int, int, COLORREF, int, int) at C:\Users\alexa\Documents\codeblock\SortedAnalyze\MyInterfaceLib.h (98):
+
+     96:     double x1 = dx + 15 + (double)(x1*365/1000);
+     97:     double y1 = 475 + dy - (double)(y1*475/500000);
+=>   98:     txCircle (x1, y1, 2);
+     99:     }
+    100: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h
+Compiled:	Mar  3 2020 22:10:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 03 2020 22:10:20
+
+Run file:	C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe
+Directory:	C:\Users\alexa\Documents\codeblock\SortedAnalyze
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x0041DFAE в функции txEllipse() в файле C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h на строке 11914. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005082F4 (32-bit), Flags: CMdRe0, Thread: 0xC68 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041DFAE in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: txEllipse() at C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h (11914)
+# 1 0x0041E1C6 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: txCircle() at C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h (11921)
+
+# 2 0x0042BF03 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: MyPoint() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/MyInterfaceLib.h (98):
+
+     96:     double x1 = dx + 15 + (double)(x1*365/1000);
+     97:     double y1 = 475 + dy - (double)(y1*475/500000);
+=>   98:     txCircle (x1, y1, 2);
+     99:     }
+    100: 
+
+# 3 0x0042CB4B in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: ArrayDraw() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (136):
+
+    134:                 BubblSorting (i, number, &sswop, &eequal);
+    135:                 txSetColor (TX_BLUE);
+=>  136:                 MyPoint(i, eequal, color, 230, 40);
+    137:                 MyPoint(i, sswop,  color, 610, 40);
+    138:                 break;
+
+# 4 0x0042C696 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: MenuManager() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (73):
+
+     71:                         txSetFillColor(Sort1color);
+     72:                         txCircle (20,20,10);
+=>   73:                         ArrayDraw(Sort1color, 1);
+     74:                         break;};
+     75:                     case 2:
+
+# 5 0x0042C494 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: main() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (38):
+
+     36:     txCreateWindow (1000, 600);
+     37:     StartDraw(buttons, ButtonDimetsion, 1000, 600);
+=>   38:     MenuManager(buttons);
+     39: 
+     40:     return 0;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txEllipse(double, double, double, double, HDC) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (11914):
+
+  11912: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return false;
+  11913: 
+=>11914: $   return txGDI ((Win32::Ellipse (dc, ROUND (x0), ROUND (y0), ROUND (x1), ROUND (y1))), dc);
+  11915:     }
+  11916: 
+
+# 1 in bool {anonymous}::TX::txCircle(double, double, double) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (11921):
+
+  11919: bool txCircle (double x, double y, double r)
+  11920:     {
+=>11921: $1  return txEllipse (x-r, y-r, x+r, y+r);
+  11922:     }
+  11923: 
+
+# 2 in void MyPoint(int, int, COLORREF, int, int) at C:\Users\alexa\Documents\codeblock\SortedAnalyze\MyInterfaceLib.h (98):
+
+     96:     double x1 = dx + 15 + (double)(x1*365/1000);
+     97:     double y1 = 475 + dy - (double)(y1*475/500000);
+=>   98:     txCircle (x1, y1, 2);
+     99:     }
+    100: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h
+Compiled:	Mar  3 2020 22:10:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 03 2020 22:10:20
+
+Run file:	C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe
+Directory:	C:\Users\alexa\Documents\codeblock\SortedAnalyze
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe, файл: C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h, строка: 8884, функция: bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND),
+
+Сообщение: Cannot lock GDI to free resources
+
+#3: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x005082F4 (32-bit), Flags: CMdrE0, Thread: 0x423C (Canvas). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0041DFAE in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: txEllipse() at C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h (11914)
+# 1 0x0041E1C6 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: txCircle() at C:/Users/alexa/Downloads/CodeBlocks/TX/TXLib.h (11921)
+
+# 2 0x0042BF03 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: MyPoint() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/MyInterfaceLib.h (98):
+
+     96:     double x1 = dx + 15 + (double)(x1*365/1000);
+     97:     double y1 = 475 + dy - (double)(y1*475/500000);
+=>   98:     txCircle (x1, y1, 2);
+     99:     }
+    100: 
+
+# 3 0x0042CB4B in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: ArrayDraw() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (136):
+
+    134:                 BubblSorting (i, number, &sswop, &eequal);
+    135:                 txSetColor (TX_BLUE);
+=>  136:                 MyPoint(i, eequal, color, 230, 40);
+    137:                 MyPoint(i, sswop,  color, 610, 40);
+    138:                 break;
+
+# 4 0x0042C696 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: MenuManager() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (73):
+
+     71:                         txSetFillColor(Sort1color);
+     72:                         txCircle (20,20,10);
+=>   73:                         ArrayDraw(Sort1color, 1);
+     74:                         break;};
+     75:                     case 2:
+
+# 5 0x0042C494 in C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe: main() at C:/Users/alexa/Documents/codeblock/SortedAnalyze/SortedAnalyze.cpp (38):
+
+     36:     txCreateWindow (1000, 600);
+     37:     StartDraw(buttons, ButtonDimetsion, 1000, 600);
+=>   38:     MenuManager(buttons);
+     39: 
+     40:     return 0;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::_txCanvas_OnDESTROY(HWND) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (8884):
+
+   8882: $   bool locked = false;
+   8883: $   _txWaitFor ((locked = txLock (false), locked), _TX_TIMEOUT);
+=> 8884: $   if (!locked) TX_DEBUG_ERROR ("Cannot lock GDI to free resources");
+   8885: 
+   8886:     // Освобождаем пользовательские ресурсы
+
+# 1 in LRESULT {anonymous}::TX::_txCanvas_WndProc(HWND, UINT, WPARAM, LPARAM) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (8804):
+
+   8802: 
+   8803:         case WM_CLOSE:          {$ if (_txCanvas_OnCLOSE      (wnd))  break;   else return 0; }
+=> 8804:         case WM_DESTROY:        {$     _txCanvas_OnDESTROY    (wnd);                return 0; }
+   8805: 
+   8806:         case WM_ERASEBKGND:     {$ if (!bkErased) { bkErased = true;  break; } else return 1; }
+
+# 2 in unsigned int {anonymous}::TX::_txCanvas_ThreadProc(void*) at C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h (8599):
+
+   8597: $       DispatchMessage  (&msg);
+   8598: 
+=> 8599: $       Sleep (0);
+   8600:         }
+   8601: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\alexa\Downloads\CodeBlocks\TX\TXLib.h
+Compiled:	Mar  3 2020 22:10:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 03 2020 22:10:20
+
+Run file:	C:\Users\alexa\Documents\codeblock\SortedAnalyze\SortedAnalyze.exe
+Directory:	C:\Users\alexa\Documents\codeblock\SortedAnalyze
+
+--------------------------------------------------
